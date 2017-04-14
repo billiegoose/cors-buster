@@ -2,7 +2,16 @@
 const url = require('url')
 const pkg = require('./package.json')
 const {send} = require('micro')
-const cors = require('micro-cors')()
+const allowHeaders = [
+  'X-Requested-With',
+  'Access-Control-Allow-Origin',
+  'X-HTTP-Method-Override',
+  'Content-Type',
+  'Authorization',
+  'Accept',
+  'Range',
+]
+const cors = require('micro-cors')({allowHeaders})
 const fetch = require('node-fetch')
 
 async function service (req, res) {
@@ -19,7 +28,16 @@ async function service (req, res) {
     `
     return send(res, 400, html)
   }
-  let f = await fetch(q.href, {method: q.method || 'GET'})
+  let headers = {}
+  for (let h of allowHeaders) {
+    if (req.headers[h.toLowerCase()]) {
+      headers[h] = req.headers[h.toLowerCase()]
+    }
+  }
+  let f = await fetch(q.href, {
+    method: q.method || 'GET',
+    headers
+  })
   f.body.pipe(res)
 }
 
