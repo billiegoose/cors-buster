@@ -1,0 +1,12 @@
+language: node_js
+node_js: 6
+deploy:
+  provider: npm
+  email: wmhilton@gmail.com
+  on:
+    skip_cleanup: true
+    tags: true
+    branch: master
+    repo: wmhilton/cors-buster
+  api_key:
+    secure: wmpWktkFsteJX09NzS+OiyPh/J8l2x3vxKjq/R3BjKR5z35PVWgl9jpn6Im1uPbDocmiLwlv1z57RqDfV/y5P+zdbKKN4kXgVOWBaZ4ja8vTqhztksHfp2TQGyH27yb3U9u1tbyHLkrwoQicxShRnTUwMPN15uiBo6zrNuoFnpPBhNquF7YgYLuN2NDLufGXrTrMH4i9ESBMC3gXN3NmBbyiiFArnR9Tqayth5X6xjpIbmuBwZDkHJO6ml5OtcetQDV74DlwaMDUIiaxKDai7CqKeI8PugyK5Lj4ZI2A1w88ed8jSPdmPJimbpYdohjyVc04Sot2/SR3evGEtoz1wNv/ysKQ1FEFjbStyFckBgVyQD9pFLugeBswlOeWduTS3KY9Kwt6WD+7NsHLkrFa/8iG+Q7/0KmOdEyiaNI+3Qgn4dDMJ9aNc9aPdXbDw9bxQJYLPDLBuSPX6ppOHzjMn6vAsvL972g6Ed3ln8Pb2xNk8qg5+vjsxjnwbmz6dgfHvRjEqejUsQvYLqilm5cDfIg/Bl+dNxDH3xKSwKsKJm6Ecg6T3VIBXL44PTnfWHqEOeYZCb06HU3Cmwnx05CbkvFE22e2Th3wB5PpozPq3mRukDruNQWxRO2SwyH4E9iEWKrW9GqHfTandlhq7JIGukNsl7+YcuzNOK61hkS73YA=
