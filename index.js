@@ -3,13 +3,20 @@ const url = require('url')
 const pkg = require('./package.json')
 const {send} = require('micro')
 const allowHeaders = [
-  'X-Requested-With',
-  'Access-Control-Allow-Origin',
-  'X-HTTP-Method-Override',
-  'Content-Type',
-  'Authorization',
-  'Accept',
-  'Range',
+  'x-requested-with',
+  'access-control-allow-origin',
+  'x-http-method-override',
+  'content-type',
+  'authorization',
+  'accept',
+  'connection',
+  'pragma',
+  'cache-control',
+  'dnt',
+  'referer',
+  'accept-encoding',
+  'accept-language',
+  'range',
 ]
 const cors = require('micro-cors')({allowHeaders})
 const fetch = require('node-fetch')
@@ -17,7 +24,7 @@ const fetch = require('node-fetch')
 async function service (req, res) {
   let q = url.parse(req.url, true).query
   if (!q.href) {
-    res.setHeader('Content-Type', 'text/html')
+    res.setHeader('content-type', 'text/html')
     let html = `<!DOCTYPE html>
     <html>
       <title>400 Error</title>
@@ -30,8 +37,8 @@ async function service (req, res) {
   }
   let headers = {}
   for (let h of allowHeaders) {
-    if (req.headers[h.toLowerCase()]) {
-      headers[h] = req.headers[h.toLowerCase()]
+    if (req.headers[h]) {
+      headers[h] = req.headers[h]
     }
   }
   let f = await fetch(q.href, {

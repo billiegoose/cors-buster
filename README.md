@@ -34,6 +34,26 @@ JavaScript, there is no way we could be impersonating Alice. Alice is safe.
 Bob was never protected in the first place. Eve has better things to do with
 her time.
 
+## Supported headers
+
+If there's a way to whitelist ALL headers, let me know. The one's I've explicitly added
+so far are:
+
+- x-requested-with
+- access-control-allow-origin
+- x-http-method-override
+- content-type
+- authorization
+- accept
+- connection
+- pragma
+- cache-control
+- dnt
+- referer
+- accept-encoding
+- accept-language
+- range
+
 ## That is nice, I want to run my own server
 
 Sure thing, just do:
@@ -42,7 +62,7 @@ Sure thing, just do:
 git clone https://github.com/wmhilton/cors-buster
 cd cors-buster
 npm install
-npm start
+PORT=80 npm start
 ```
 
 ## License
