@@ -1,0 +1,21 @@
+{
+  "name": "cors-buster",
+  "version": "0.0.0",
+  "description": "When you need a file, but the headers ain't good, who you gonna call? CORS Buster!",
+  "main": "index.js",
+  "scripts": {
+    "start": "micro"
+  },
+  "keywords": [],
+  "author": "William Hilton <wmhilton@gmail.com>",
+  "license": "Unlicense",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com//cors-buster"
+  },
+  "dependencies": {
+    "micro": "^7.3.2",
+    "micro-cors": "0.0.4",
+    "node-fetch": "^1.6.3"
+  }
+}
