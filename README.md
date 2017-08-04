@@ -34,25 +34,33 @@ JavaScript, there is no way we could be impersonating Alice. Alice is safe.
 Bob was never protected in the first place. Eve has better things to do with
 her time.
 
+## But I need to POST/PUT/etc with data?
+
+That works too! Just make an OPTIONS/POST/PUT/DELETE/etc request and it will be forwarded.
+If you can only make GET requests, you can provide a `method` query parameter and
+the server will make it that kind of request instead.
+
 ## Supported headers
 
 If there's a way to whitelist ALL headers, let me know. The one's I've explicitly added
 so far are:
 
-- x-requested-with
-- access-control-allow-origin
-- x-http-method-override
-- content-type
-- authorization
-- accept
-- connection
-- pragma
-- cache-control
-- dnt
-- referer
 - accept-encoding
 - accept-language
+- accept
+- access-control-allow-origin
+- authorization
+- cache-control
+- connection
+- content-length
+- content-type
+- dnt
+- pragma
 - range
+- referer
+- user-agent
+- x-http-method-override
+- x-requested-with
 
 ## That is nice, I want to run my own server
 
