@@ -14,8 +14,8 @@
     "url": "git://github.com/wmhilton/cors-buster.git"
   },
   "dependencies": {
-    "micro": "^7.3.2",
+    "micro": "^8.0.1",
     "micro-cors": "0.0.4",
-    "node-fetch": "^1.6.3"
+    "node-fetch": "^1.7.1"
   }
 }
