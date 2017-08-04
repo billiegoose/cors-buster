@@ -40,6 +40,7 @@ async function service (req, res) {
       <ul>
         <li>?href=&lt;href&gt; - <i>required</i>, the URL you are trying to reach</li>
         <li>&method=&lt;method&gt; - <i>optional</i>, the HTTP method to use</li>
+        <li>&&lt;HTTP Header&gt;=&lt;value&gt; - <i>optional</i>, set any supported HTTP headers</li>
       </ul>
       <h2>Supported Headers</h2>
       <ul>
@@ -52,7 +53,7 @@ async function service (req, res) {
   let headers = {}
   for (let h of allowHeaders) {
     if (req.headers[h]) {
-      headers[h] = req.headers[h]
+      headers[h] = q[h] || req.headers[h]
     }
   }
   let f = await fetch(q.href, {
