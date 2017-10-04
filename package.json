@@ -17,5 +17,8 @@
     "micro": "^8.0.1",
     "micro-cors": "0.0.4",
     "node-fetch": "^1.7.1"
+  },
+  "now": {
+    "public": true
   }
 }
