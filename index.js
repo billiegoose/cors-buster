@@ -20,7 +20,24 @@ const allowHeaders = [
   'x-http-method-override',
   'x-requested-with',
 ]
-const cors = require('micro-cors')({allowHeaders})
+const exposeHeaders = [
+  'accept-ranges',
+  'age',
+  'cache-control',
+  'content-length',
+  'content-language',
+  'content-type',
+  'date',
+  'etag',
+  'expires',
+  'last-modified',
+  'pragma',
+  'server',
+  'transfer-encoding',
+  'vary',
+  'x-github-request-id',
+]
+const cors = require('./micro-cors.js')({allowHeaders, exposeHeaders})
 const fetch = require('node-fetch')
 
 async function service (req, res) {
@@ -42,13 +59,13 @@ async function service (req, res) {
       It records the URL, origin IP, referer, and user-agent. None of the sensitive HTTP headers (including those used for
       HTTP Basic Auth and HTTP Token auth) are ever logged.
       <h2>Request API</h2>
-      https://${process.env.NOW_URL}/domain/path?query
+      ${process.env.NOW_URL}/domain/path?query
       <ul>
         <li>domain - the destination host</li>
         <li>path - the rest of the URL</li>
         <li>query - optional query parameters</li>
       </ul>
-      Example: https://${process.env.NOW_URL}/github.com/wmhilton/cors-buster?service=git-upload-pack
+      Example: ${process.env.NOW_URL}/github.com/wmhilton/cors-buster?service=git-upload-pack
       <h2>Supported Protocols</h2>
       In order to protect users who might send their usernames and passwords through the proxy,
       all requests must be made using HTTPS. Plain old HTTP is insecure and therefore not allowed.
@@ -85,9 +102,14 @@ async function service (req, res) {
     {
       method: req.method,
       headers,
-      body: req
+      body: (req.method !== 'GET' && req.method !== 'HEAD') ? req : undefined
     }
   )
+  for (let h of exposeHeaders) {
+    if (f.headers.has(h)) {
+      res.setHeader(h, f.headers.get(h))
+    }
+  }
   f.body.pipe(res)
 }
 
