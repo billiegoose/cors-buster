@@ -3,7 +3,7 @@ When you need a file, but the headers ain't good, who you gonna call? CORS Buste
 
 ## What is this?
 
-This is the software running on https://cors-buster.now.sh, a free
+This is the software running on https://cors-buster-tbgktfqyku.now.sh, a free
 service for AJAX users struggling to work around the fact that many websites
 do not implement CORS headers, even for static content.
 
@@ -21,7 +21,7 @@ Uncaught (in promise) TypeError: Failed to fetch
 You can do this instead, and now there's no error:
 
 ```
-window.fetch('http://cors-buster.now.sh/nodejs.org/dist/v6.10.2/node-v6.10.2-linux-x64.tar.gz')
+window.fetch('https://cors-buster-tbgktfqyku.now.sh/nodejs.org/dist/v6.10.2/node-v6.10.2-linux-x64.tar.gz')
 ```
 
 ## Is this safe?

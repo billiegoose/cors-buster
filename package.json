@@ -1,6 +1,6 @@
 {
   "name": "cors-buster",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "When you need a file, but the headers ain't good, who you gonna call? CORS Buster!",
   "main": "index.js",
   "scripts": {

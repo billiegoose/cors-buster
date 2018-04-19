@@ -106,6 +106,7 @@ async function service (req, res) {
     }
   )
   for (let h of exposeHeaders) {
+    if (h === 'content-length') continue
     if (f.headers.has(h)) {
       res.setHeader(h, f.headers.get(h))
     }
