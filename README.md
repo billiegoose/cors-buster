@@ -21,7 +21,7 @@ Uncaught (in promise) TypeError: Failed to fetch
 You can do this instead, and now there's no error:
 
 ```
-window.fetch('http://cors-buster.now.sh/?href=https://nodejs.org/dist/v6.10.2/node-v6.10.2-linux-x64.tar.gz')
+window.fetch('http://cors-buster.now.sh/nodejs.org/dist/v6.10.2/node-v6.10.2-linux-x64.tar.gz')
 ```
 
 ## Is this safe?
@@ -45,6 +45,8 @@ the server will make it that kind of request instead.
 If there's a way to whitelist ALL headers, let me know. The one's I've explicitly added
 so far are:
 
+#### Request Headers:
+
 - accept-encoding
 - accept-language
 - accept
@@ -62,6 +64,24 @@ so far are:
 - x-http-method-override
 - x-requested-with
 
+#### Response Headers:
+
+- accept-ranges
+- age
+- cache-control
+- content-length
+- content-language
+- content-type
+- date
+- etag
+- expires
+- last-modified
+- pragma
+- server
+- transfer-encoding
+- vary
+- x-github-request-id
+
 ## That is nice, I want to run my own server
 
 Sure thing, just do:
@@ -73,7 +93,14 @@ npm install
 PORT=80 npm start
 ```
 
+## No, I meant I want to deploy it to zeit.now.sh
+
+Even easier, just do:
+
+```
+now wmhilton/cors-buster
+```
+
 ## License
 
-Copyright 2017 William Hilton.
-Licensed under [The Unlicense](http://unlicense.org/).
+This work is released under [The MIT License](https://opensource.org/licenses/MIT)

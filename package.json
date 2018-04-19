@@ -9,7 +9,7 @@
   },
   "keywords": [],
   "author": "William Hilton <wmhilton@gmail.com>",
-  "license": "Unlicense",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git://github.com/wmhilton/cors-buster.git"
