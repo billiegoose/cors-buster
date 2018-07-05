@@ -1,7 +1,7 @@
 {
-  "name": "cors-buster",
+  "name": "@isomorphic-git/cors-proxy",
   "version": "2.0.2",
-  "description": "When you need a file, but the headers ain't good, who you gonna call? CORS Buster!",
+  "description": "Proxy clone and push requests for the browser",
   "main": "index.js",
   "scripts": {
     "start": "cross-env micro --listen=tcp://0.0.0.0:$PORT",
@@ -12,7 +12,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/wmhilton/cors-buster.git"
+    "url": "git://github.com/isomorphic-git/cors-proxy.git"
   },
   "dependencies": {
     "cross-env": "^5.1.4",
