@@ -1,18 +1,20 @@
 {
   "name": "@isomorphic-git/cors-proxy",
-  "version": "2.0.2",
+  "version": "0.0.0-development",
   "description": "Proxy clone and push requests for the browser",
   "main": "index.js",
   "scripts": {
     "start": "cross-env micro --listen=tcp://0.0.0.0:$PORT",
-    "dev": "micro-dev"
+    "dev": "micro-dev",
+    "travis-deploy-once": "travis-deploy-once --pro",
+    "semantic-release": "semantic-release"
   },
   "keywords": [],
   "author": "William Hilton <wmhilton@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/isomorphic-git/cors-proxy.git"
+    "url": "https://github.com/isomorphic-git/cors-proxy.git"
   },
   "dependencies": {
     "cross-env": "^5.1.4",
@@ -23,6 +25,8 @@
     "public": true
   },
   "devDependencies": {
-    "micro-dev": "^2.2.2"
+    "micro-dev": "^2.2.2",
+    "travis-deploy-once": "^5.0.1",
+    "semantic-release": "^15.6.3"
   }
 }
