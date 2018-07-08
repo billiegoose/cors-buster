@@ -30,6 +30,6 @@
     "semantic-release": "^15.6.3"
   },
   "publishConfig": {
-   "access": "public"
+    "access": "public"
   }
 }

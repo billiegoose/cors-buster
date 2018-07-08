@@ -38,8 +38,18 @@ const exposeHeaders = [
   'vary',
   'x-github-request-id',
 ]
+const allowMethods = [
+  'POST',
+  'GET',
+  'OPTIONS'
+]
 const fetch = require('node-fetch')
-const cors = require('./micro-cors.js')({allowHeaders, exposeHeaders, origin})
+const cors = require('./micro-cors.js')({
+  allowHeaders,
+  exposeHeaders,
+  allowMethods,
+  origin
+})
 const allow = require('./allow-request.js')
 
 async function service (req, res) {
@@ -50,12 +60,27 @@ async function service (req, res) {
     let html = `<!DOCTYPE html>
     <html>
       <title>@isomorphic-git/cors-proxy</title>
-      <h1>@isomorphic-git/cors-proxy</h1>
-      <h2>See docs: <a href="https://npmjs.org/package/${pkg.name}">https://npmjs.org/package/${pkg.name}</a></h2>
+      <h1> <a href="https://npmjs.org/package/${pkg.name}">@isomorphic-git/cors-proxy</a> </h1>
+      This is the software running on https://git-cors-proxy.now.sh, a free service for users of isomorphic-git so you can clone and push repos in the browser.
+      It is derived from <a href="https://github.com/wmhilton/cors-buster">cors-buster</a> with added restrictions to prevent abuse.
+      <h2>Terms of Use</h2>
+      <p><b>This free service is provided to you AS IS with no guarantees.
+      By using this free service, you promise not to use excessive amounts of bandwidth.
+      This server can only support 50 gigabytes of data / month.
+      Please clone responsibly.</b></p>
+
+      <p><b>If you are cloning or pushing large amounts of data your IP address may be banned.
+      Please run your own instance of the software (or <a href="https://opencollective.com/isomorphic-git">donate money</a> to isomorphic-git)
+      if you need to make heavy use this service.</b></p>
+
+      <h2>Allowed Origins</h2>
+      This proxy allows git clone / fetch / push / getRemoteInfo requests from these domains: <code>${process.env.ALLOW_ORIGIN || '*'}</code>
+
       <h2>Authenticity</h2>
       This is a publicly available service. As such you may wonder if it is safe to trust.
       You can inspect the source code that this server is running by visiting this page: <a href="/_src">/_src</a>.
       The deploys are immutable, so you can be sure that the code will never change.
+
       <h2>Logging</h2>
       The cloud hosting provider keeps log of all requests. That log is public and available on this page: <a href="/_logs">/_logs</a>.
       It records the URL, origin IP, referer, and user-agent. None of the sensitive HTTP headers (including those used for
