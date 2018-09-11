@@ -1,28 +1,39 @@
 {
-  "name": "cors-buster",
-  "version": "2.0.2",
-  "description": "When you need a file, but the headers ain't good, who you gonna call? CORS Buster!",
+  "name": "@isomorphic-git/cors-proxy",
+  "version": "0.0.0-development",
+  "description": "Proxy clone and push requests for the browser",
   "main": "index.js",
+  "bin": "bin.js",
   "scripts": {
     "start": "cross-env micro --listen=tcp://0.0.0.0:$PORT",
-    "dev": "micro-dev"
+    "dev": "micro-dev",
+    "travis-deploy-once": "travis-deploy-once --pro",
+    "semantic-release": "semantic-release"
   },
   "keywords": [],
   "author": "William Hilton <wmhilton@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/wmhilton/cors-buster.git"
+    "url": "https://github.com/isomorphic-git/cors-proxy.git"
   },
   "dependencies": {
     "cross-env": "^5.1.4",
+    "daemonize-process": "^1.0.9",
     "micro": "^9.1.4",
-    "node-fetch": "^2.1.2"
+    "minimisted": "^2.0.0",
+    "node-fetch": "^2.1.2",
+    "tree-kill": "^1.2.0"
   },
   "now": {
     "public": true
   },
   "devDependencies": {
-    "micro-dev": "^2.2.2"
+    "micro-dev": "^2.2.2",
+    "travis-deploy-once": "^5.0.1",
+    "semantic-release": "^15.6.3"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
