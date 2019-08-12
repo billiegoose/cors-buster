@@ -3,7 +3,7 @@ When you need a file, but the headers ain't good, who you gonna call? CORS Buste
 
 ## What is this?
 
-This is the software running on https://cors-buster-tbgktfqyku.now.sh, a free
+This is the software ~running on https://cors-buster-tbgktfqyku.now.sh~ (Update: I had to shut it down after the bandwidth exceeded the free tier of Now), a free
 service for AJAX users struggling to work around the fact that many websites
 do not implement CORS headers, even for static content.
 
